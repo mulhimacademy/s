@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نفسيتي السعيدة - الإخصائية النفسية</title>
+    <!-- Font Awesome للايقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - خط عربي جميل -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e8f3f1 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* الخلفية الديناميكية مع الغيوم */
+        .clouds {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .cloud {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 1000px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            animation: floatCloud 20s infinite linear;
+        }
+
+        .cloud::after, .cloud::before {
+            content: '';
+            position: absolute;
+            background: inherit;
+            border-radius: 50%;
+        }
+
+        .cloud1 {
+            width: 200px;
+            height: 60px;
+            top: 10%;
+            right: 5%;
+            animation-duration: 30s;
+        }
+        .cloud1::before {
+            width: 80px;
+            height: 80px;
+            top: -40px;
+            left: 20px;
+        }
+        .cloud1::after {
+            width: 120px;
+            height: 120px;
+            top: -60px;
+            left: 60px;
+        }
+
+        .cloud2 {
+            width: 300px;
+            height: 80px;
+            bottom: 15%;
+            left: 5%;
+            animation-duration: 40s;
+            animation-direction: reverse;
+        }
+        .cloud2::before {
+            width: 120px;
+            height: 120px;
+            top: -60px;
+            left: 40px;
+        }
+        .cloud2::after {
+            width: 160px;
+            height: 160px;
+            top: -80px;
+            left: 100px;
+        }
+
+        @keyframes floatCloud {
+            from { transform: translateX(-100px); }
+            to { transform: translateX(calc(100vw + 100px)); }
+        }
+
+        /* العناصر التراثية العمانية المزخرفة */
+        .omani-pattern {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: repeating-linear-gradient(45deg, #8bc34a 0px, #8bc34a 20px, #ffb74d 20px, #ffb74d 40px);
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* الهيدر المتحرك */
+        .animated-header {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 60px;
+            padding: 15px 30px;
+            margin: 20px 0 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255,255,255,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .kids-avatars {
+            display: flex;
+            gap: 15px;
+        }
+
+        .kid-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #ffb6c1, #ffdab9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            animation: wave 2s infinite;
+            transform-origin: bottom center;
+        }
+
+        .kid-avatar:nth-child(2) { animation-delay: 0.3s; }
+        .kid-avatar:nth-child(3) { animation-delay: 0.6s; }
+        .kid-avatar:nth-child(4) { animation-delay: 0.9s; }
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(10deg); }
+            75% { transform: rotate(-5deg); }
+        }
+
+        .welcome-message h1 {
+            color: #2c3e50;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .welcome-message p {
+            color: #5f6b7a;
+            font-size: 1rem;
+        }
+
+        /* البطاقات الرئيسية */
+        .main-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin: 50px 0;
+        }
+
+        .card {
+            width: 280px;
+            height: 320px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
+            border-radius: 40px;
+            padding: 30px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.8);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 50px rgba(0,0,0,0.1);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, #8bc34a, #ffb74d, #64b5f6);
+        }
+
+        .card-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            transition: all 0.3s ease;
+        }
+
+        .card:nth-child(1) .card-icon {
+            background: linear-gradient(135deg, #ffb6c1, #ffdab9);
+            color: #e67e22;
+        }
+
+        .card:nth-child(2) .card-icon {
+            background: linear-gradient(135deg, #a8e6cf, #d4edf5);
+            color: #27ae60;
+        }
+
+        .card:nth-child(3) .card-icon {
+            background: linear-gradient(135deg, #f8c291, #fad0c4);
+            color: #d35400;
+        }
+
+        .card h3 {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #7f8c8d;
+            font-size: 1rem;
+        }
+
+        /* خريطة ظفار التفاعلية */
+        .dhofar-map-section {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            border-radius: 60px;
+            padding: 40px;
+            margin: 50px 0;
+            border: 1px solid rgba(255,255,255,0.8);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            display: inline-block;
+            padding: 0 20px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 50px;
+        }
+
+        .map-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .map-item {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, #8bc34a20, #64b5f620);
+            border-radius: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid #8bc34a;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .map-item:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #8bc34a40, #64b5f640);
+        }
+
+        .map-item::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%238bc34a20"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>');
+            background-size: contain;
+            opacity: 0.1;
+        }
+
+        .map-item span {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            z-index: 1;
+        }
+
+        .map-item small {
+            color: #5f6b7a;
+            font-size: 0.9rem;
+            z-index: 1;
+        }
+
+        /* قسم الألعاب */
+        .games-section {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            border-radius: 60px;
+            padding: 40px;
+            margin: 50px 0;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .game-card {
+            background: white;
+            border-radius: 30px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .game-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #64b5f6, #8bc34a);
+            border-radius: 30px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            color: white;
+        }
+
+        .game-card h4 {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .game-card p {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+        }
+
+        .play-btn {
+            background: linear-gradient(135deg, #ffb6c1, #ffdab9);
+            border: none;
+            padding: 10px 30px;
+            border-radius: 30px;
+            margin-top: 20px;
+            color: #2c3e50;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .play-btn:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #ffa5b4, #ffc9a9);
+        }
+
+        /* الفوتر */
+        footer {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 60px 60px 0 0;
+            padding: 30px;
+            margin-top: 50px;
+            text-align: center;
+            border-top: 2px solid #8bc34a;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            color: #5f6b7a;
+            margin: 5px 0;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            color: #8bc34a;
+            margin-bottom: 10px;
+        }
+
+        /* وضع النهار/الليل */
+        .time-mode {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            background: white;
+            border-radius: 50px;
+            padding: 10px 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .time-mode i {
+            font-size: 1.5rem;
+            color: #f1c40f;
+        }
+
+        /* وضع الليل */
+        body.night-mode {
+            background: linear-gradient(135deg, #1a2639, #2c3e50);
+        }
+
+        body.night-mode .card,
+        body.night-mode .animated-header,
+        body.night-mode .dhofar-map-section,
+        body.night-mode .games-section,
+        body.night-mode footer {
+            background: rgba(44, 62, 80, 0.8);
+            color: #ecf0f1;
+        }
+
+        body.night-mode h1,
+        body.night-mode h2,
+        body.night-mode h3,
+        body.night-mode h4,
+        body.night-mode p {
+            color: #ecf0f1;
+        }
+
+        /* تصميم متجاوب */
+        @media (max-width: 768px) {
+            .animated-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .main-cards {
+                gap: 20px;
+            }
+
+            .card {
+                width: 100%;
+                max-width: 320px;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* رسالة ترحيب متحركة */
+        .floating-message {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #8bc34a, #64b5f6);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: bounce 2s infinite;
+            z-index: 100;
+            cursor: pointer;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* أداة التنفس */
+        .breathing-tool {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .breath-circle {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #8bc34a, #64b5f6);
+            border-radius: 50%;
+            margin: 20px auto;
+            animation: breath 4s infinite ease-in-out;
+        }
+
+        @keyframes breath {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.5); }
+        }
+    </style>
+</head>
+<body>
+    <!-- الغيوم المتحركة -->
+    <div class="clouds">
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+    </div>
+
+    <!-- النقش العماني -->
+    <div class="omani-pattern"></div>
+
+    <!-- زر تبديل وضع النهار/الليل -->
+    <div class="time-mode" onclick="toggleNightMode()">
+        <i class="fas fa-sun"></i>
+        <span>صباح الخير</span>
+    </div>
+
+    <!-- الرسالة العائمة -->
+    <div class="floating-message" onclick="showWelcomeMessage()">
+        <i class="fas fa-heart"></i> أنت مميز!
+    </div>
+
+    <div class="container">
+        <!-- الهيدر المتحرك -->
+        <div class="animated-header">
+            <div class="kids-avatars">
+                <div class="kid-avatar">👧</div>
+                <div class="kid-avatar">🧒</div>
+                <div class="kid-avatar">👦</div>
+                <div class="kid-avatar">👩</div>
+            </div>
+            <div class="welcome-message">
+                <h1>نفسيتي السعيدة 🌸</h1>
+                <p>مرحباً بكم في واحتنا النفسية.. مكان آمن لصغارنا في ظفار</p>
+            </div>
+            <div class="kids-avatars">
+                <div class="kid-avatar">🌟</div>
+                <div class="kid-avatar">💫</div>
+                <div class="kid-avatar">⭐</div>
+                <div class="kid-avatar">✨</div>
+            </div>
+        </div>
+
+        <!-- البطاقات الرئيسية -->
+        <div class="main-cards">
+            <div class="card" onclick="window.location.href='#kids-section'">
+                <div class="card-icon">
+                    <i class="fas fa-child"></i>
+                </div>
+                <h3>الأطفال</h3>
+                <p>ألعاب، فيديوهات، وقصص ممتعة</p>
+            </div>
+
+            <div class="card" onclick="window.location.href='#parents-section'">
+                <div class="card-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>أولياء الأمور</h3>
+                <p>استشارات ودعم تربوي</p>
+            </div>
+
+            <div class="card" onclick="window.location.href='#initiatives-section'">
+                <div class="card-icon">
+                    <i class="fas fa-medal"></i>
+                </div>
+                <h3>مبادراتي</h3>
+                <p>إنجازات الأستاذة المميزة</p>
+            </div>
+        </div>
+
+        <!-- خريطة ظفار التفاعلية -->
+        <div class="dhofar-map-section">
+            <div class="section-title">
+                <h2>🗺️ أطفال ظفار يرحبون بكم</h2>
+            </div>
+            <div class="map-grid">
+                <div class="map-item" onclick="showCityMessage('صلالة')">
+                    <span>صلالة</span>
+                    <small>١٠٠ طفل</small>
+                </div>
+                <div class="map-item" onclick="showCityMessage('طاقة')">
+                    <span>طاقة</span>
+                    <small>٧٥ طفل</small>
+                </div>
+                <div class="map-item" onclick="showCityMessage('مرباط')">
+                    <span>مرباط</span>
+                    <small>٦٠ طفل</small>
+                </div>
+                <div class="map-item" onclick="showCityMessage('ثمريت')">
+                    <span>ثمريت</span>
+                    <small>٨٠ طفل</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- قسم الألعاب النفسية -->
+        <div class="games-section" id="kids-section">
+            <div class="section-title">
+                <h2>🎮 الألعاب النفسية العلاجية</h2>
+            </div>
+            <div class="games-grid">
+                <div class="game-card">
+                    <div class="game-icon">
+                        <i class="fas fa-smile"></i>
+                    </div>
+                    <h4>لعبة المشاعر</h4>
+                    <p>اختر الموقف ثم لون المشاعر المناسبة</p>
+                    <button class="play-btn" onclick="playGame('feelings')">العب الآن</button>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-icon">
+                        <i class="fas fa-lungs"></i>
+                    </div>
+                    <h4>التنفس مع السلحفاة</h4>
+                    <p>تمرين التنفس البصري</p>
+                    <button class="play-btn" onclick="startBreathing()">ابدأ التنفس</button>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-icon">
+                        <i class="fas fa-draw-polygon"></i>
+                    </div>
+                    <h4>المتاهة الهادئة</h4>
+                    <p>ساعد الحيوان للوصول لبيته</p>
+                    <button class="play-btn" onclick="playGame('maze')">العب الآن</button>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h4>بطاقات الامتنان</h4>
+                    <p>أنا ممتن لـ... لأن...</p>
+                    <button class="play-btn" onclick="playGame('gratitude')">اختر بطاقة</button>
+                </div>
+            </div>
+
+            <!-- أداة التنفس التفاعلية -->
+            <div class="breathing-tool" id="breathing-tool" style="display: none;">
+                <h4>تمرين التنفس العميق</h4>
+                <div class="breath-circle" id="breathCircle"></div>
+                <p>تنفس مع حركة الدائرة</p>
+                <button class="play-btn" onclick="stopBreathing()">توقف</button>
+            </div>
+        </div>
+
+        <!-- قسم الفيديوهات التوعوية -->
+        <div class="games-section">
+            <div class="section-title">
+                <h2>🎥 فيديوهات توعوية</h2>
+            </div>
+            <div class="games-grid">
+                <div class="game-card">
+                    <div class="game-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h4>قصة مشاعري</h4>
+                    <p>التعرف على المشاعر</p>
+                    <button class="play-btn" onclick="watchVideo('feelings-story')">شاهد</button>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-icon">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <h4>كيف أكون صديقاً جيداً؟</h4>
+                    <p>مهارات اجتماعية</p>
+                    <button class="play-btn" onclick="watchVideo('friendship')">شاهد</button>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-icon">
+                        <i class="fas fa-moon"></i>
+                    </div>
+                    <h4>سر النوم الهادئ</h4>
+                    <p>قبل النوم</p>
+                    <button class="play-btn" onclick="watchVideo('sleep')">شاهد</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- قسم أولياء الأمور -->
+        <div class="games-section" id="parents-section">
+            <div class="section-title">
+                <h2>👪 أولياء الأمور</h2>
+            </div>
+            <div class="games-grid">
+                <div class="game-card">
+                    <div class="game-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h4>حجز استشارة</h4>
+                    <p>احجز موعداً مع الإخصائية</p>
+                    <button class="play-btn" onclick="bookAppointment()">احجز الآن</button>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h4>دليل تربوي</h4>
+                    <p>نصائح ومقالات قصيرة</p>
+                    <button class="play-btn" onclick="showGuide()">اقرأ</button>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-icon">
+                        <i class="fas fa-inbox"></i>
+                    </div>
+                    <h4>صندوق الاقتراحات</h4>
+                    <p>شاركنا استفساراتك</p>
+                    <button class="play-btn" onclick="openSuggestions()">أرسل</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- قسم مبادرات الأستاذة -->
+        <div class="games-section" id="initiatives-section">
+            <div class="section-title">
+                <h2>🏆 مبادرات الأستاذة</h2>
+            </div>
+            <div class="games-grid">
+                <div class="game-card">
+                    <div class="game-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h4>صباح النعناع</h4>
+                    <p>مبادرة تخفيف التوتر الصباحي</p>
+                    <button class="play-btn" onclick="showInitiative('mint')">عرض</button>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h4>جدارية الشكر</h4>
+                    <p>شهادات التقدير</p>
+                    <button class="play-btn" onclick="showWall()">عرض</button>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h4>الخطة الإرشادية</h4>
+                    <p>الأنشطة القادمة</p>
+                    <button class="play-btn" onclick="showPlan()">استعرض</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- الفوتر -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-heart" style="color: #ff6b6b;"></i>
+                    <i class="fas fa-heart" style="color: #8bc34a;"></i>
+                    <i class="fas fa-heart" style="color: #64b5f6;"></i>
+                </div>
+                <p>نفسيتي السعيدة - الإخصائية النفسية بمدرسة الحلقة الأولى</p>
+                <p>محافظة ظفار - سلطنة عمان</p>
+                <p>© 2024 جميع الحقوق محفوظة</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // تبديل وضع النهار/الليل
+        function toggleNightMode() {
+            document.body.classList.toggle('night-mode');
+            const modeBtn = document.querySelector('.time-mode');
+            const icon = modeBtn.querySelector('i');
+            const text = modeBtn.querySelector('span');
+            
+            if(document.body.classList.contains('night-mode')) {
+                icon.className = 'fas fa-moon';
+                text.textContent = 'مساء الخير';
+            } else {
+                icon.className = 'fas fa-sun';
+                text.textContent = 'صباح الخير';
+            }
+        }
+
+        // رسالة المدينة
+        function showCityMessage(city) {
+            alert(`أهلاً بكم في ولاية ${city} 🌸\nأطفال ${city} يرسلون لكم قبلات سعيدة!`);
+        }
+
+        // الرسالة العائمة
+        function showWelcomeMessage() {
+            const messages = [
+                'أنت مميز جداً! ✨',
+                'ابتسم فالحياة جميلة 😊',
+                'نفوسنا مطمئنة بالله 💖',
+                'أنت قادر على تحقيق أحلامك 🌟'
+            ];
+            const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+            alert(randomMsg);
+        }
+
+        // ألعاب
+        function playGame(game) {
+            const games = {
+                feelings: '🎨 لعبة المشاعر: اختر الموقف ثم لّون المشاعر!',
+                maze: '🌀 ساعد الحيوان في الوصول إلى بيته!',
+                gratitude: '💝 أنا ممتن لـ... (اكتب شيئاً أنت ممتن له)'
+            };
+            alert(games[game] || 'اللعبة قيد التطوير 🎮');
+        }
+
+        // تمرين التنفس
+        function startBreathing() {
+            document.getElementById('breathing-tool').style.display = 'block';
+            setTimeout(() => {
+                alert('خذ نفساً عميقاً... شهيق... زفير... 🌬️');
+            }, 1000);
+        }
+
+        function stopBreathing() {
+            document.getElementById('breathing-tool').style.display = 'none';
+        }
+
+        // فيديوهات
+        function watchVideo(video) {
+            const videos = {
+                'feelings-story': '🎬 قصة مشاعري: اليوم سنتعرف على المشاعر الأربعة الأساسية!',
+                'friendship': '🎬 كيف نكون أصدقاء؟ بالمشاركة واللعب معاً!',
+                'sleep': '🎬 سر النوم الهادئ هو قراءة قصة قبل النوم'
+            };
+            alert(videos[video] || 'الفيديو قيد التحميل 📺');
+        }
+
+        // أولياء الأمور
+        function bookAppointment() {
+            const phone = "968XXXXXXXX"; // ضع رقم الواتساب هنا
+            const message = "مرحباً، أرغب في حجز استشارة نفسية";
+            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        function showGuide() {
+            alert('📚 الدليل التربوي:\n1. كيف تتعامل مع نوبات الغضب؟\n2. طفلي يخاف من الظلام\n3. تعزيز الثقة بالنفس');
+        }
+
+        function openSuggestions() {
+            const suggestion = prompt('اكتب اقتراحك أو استفسارك:');
+            if(suggestion) {
+                alert('شكراً لك! سيتم التواصل معك قريباً 💌');
+            }
+        }
+
+        // مبادرات
+        function showInitiative(init) {
+            alert('🌿 مبادرة صباح النعناع: كل صباح نبدأ بنشاط تنفسي مع النعناع الأخضر');
+        }
+
+        function showWall() {
+            alert('🏅 جدارية الشكر:\nتم تكريم ٢٥ طالباً هذا الأسبوع!\nشكراً لأولياء الأمور على تعاونهم');
+        }
+
+        function showPlan() {
+            alert('📅 الخطة الإرشادية لشهر فبراير:\n- أسبوع المشاعر\n- أسبوع الصداقة\n- ورشة أولياء الأمور');
+        }
+
+        // تأثيرات إضافية
+        document.querySelectorAll('.card, .game-card, .map-item').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                el.style.transform = 'scale(1.02)';
+            });
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = 'scale(1)';
+            });
+        });
+
+        // رسالة ترحيب عند تحميل الصفحة
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                alert('🌸 أهلاً وسهلاً بكم في منصة "نفسيتي السعيدة"\nنتمنى لكم يوماً مليئاً بالسعادة والطمأنينة');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
