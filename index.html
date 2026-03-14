@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نفسيتي السعيدة - المنصة النفسية الرائدة</title>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>اطمئن - للدعم النفسي المدرسي</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -17,14 +17,13 @@
 
         body {
             font-family: 'Tajawal', 'Cairo', sans-serif;
-            background: linear-gradient(135deg, #f0f7f5 0%, #e6f0ef 100%);
-            min-height: 100vh;
-            position: relative;
+            background: linear-gradient(145deg, #fff9f0, #f0faff);
+            color: #2c3e50;
             overflow-x: hidden;
         }
 
-        /* الغيوم المتحركة */
-        .clouds {
+        /* الخلفية الملونة المبهجة */
+        .bg-pattern {
             position: fixed;
             top: 0;
             left: 0;
@@ -32,85 +31,45 @@
             height: 100%;
             pointer-events: none;
             z-index: 0;
+            opacity: 0.4;
         }
 
-        .cloud {
+        .bg-pattern div {
             position: absolute;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 1000px;
-            box-shadow: 0 8px 20px rgba(139, 195, 74, 0.1);
-            animation: floatCloud 25s infinite linear;
-        }
-
-        .cloud::after, .cloud::before {
-            content: '';
-            position: absolute;
-            background: inherit;
             border-radius: 50%;
+            filter: blur(60px);
         }
 
-        .cloud1 {
-            width: 200px;
-            height: 60px;
-            top: 15%;
-            right: 5%;
-            animation-duration: 32s;
-        }
-        .cloud1::before {
-            width: 80px;
-            height: 80px;
-            top: -40px;
-            left: 20px;
-        }
-        .cloud1::after {
-            width: 120px;
-            height: 120px;
-            top: -60px;
-            left: 60px;
-        }
-
-        .cloud2 {
-            width: 280px;
-            height: 70px;
-            bottom: 20%;
-            left: 5%;
-            animation-duration: 38s;
-            animation-direction: reverse;
-        }
-        .cloud2::before {
-            width: 100px;
-            height: 100px;
+        .bg-pattern div:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            background: #ff9a9e;
             top: -50px;
-            left: 30px;
-        }
-        .cloud2::after {
-            width: 140px;
-            height: 140px;
-            top: -70px;
-            left: 80px;
+            right: -50px;
         }
 
-        @keyframes floatCloud {
-            from { transform: translateX(-100px); }
-            to { transform: translateX(calc(100vw + 100px)); }
+        .bg-pattern div:nth-child(2) {
+            width: 400px;
+            height: 400px;
+            background: #fad0c4;
+            bottom: -100px;
+            left: -100px;
         }
 
-        /* النقش العماني السفلي */
-        .omani-border {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 8px;
-            background: linear-gradient(90deg, #8bc34a, #64b5f6, #ffb74d, #ff8a80, #8bc34a);
-            background-size: 300% 100%;
-            animation: gradientMove 6s infinite alternate;
-            z-index: 5;
+        .bg-pattern div:nth-child(3) {
+            width: 350px;
+            height: 350px;
+            background: #a1c4fd;
+            top: 40%;
+            left: 20%;
         }
 
-        @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
+        .bg-pattern div:nth-child(4) {
+            width: 280px;
+            height: 280px;
+            background: #c2e9fb;
+            bottom: 20%;
+            right: 15%;
         }
 
         .container {
@@ -118,423 +77,509 @@
             margin: 0 auto;
             padding: 20px;
             position: relative;
-            z-index: 3;
+            z-index: 10;
         }
 
-        /* الهيدر العلوي مع الشعار */
-        .top-header {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(15px);
-            border-radius: 50px;
-            padding: 15px 30px;
+        /* ===== هيدر مبهج مع شعار المنصة ===== */
+        .happy-header {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 70px 70px 30px 30px;
+            padding: 25px 35px;
             margin-bottom: 30px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-            border: 1px solid rgba(255,255,255,0.6);
+            box-shadow: 0 20px 40px rgba(255, 154, 158, 0.2);
+            border: 3px solid white;
             display: flex;
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 20px;
         }
 
-        .school-info {
+        .platform-brand {
             display: flex;
             align-items: center;
             gap: 20px;
         }
 
-        .school-logo {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #ffffff, #f0f7f5);
-            border-radius: 20px;
+        .brand-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+            border-radius: 30px 10px 30px 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 5px 15px rgba(139, 195, 74, 0.2);
-            border: 2px solid #8bc34a;
-            overflow: hidden;
+            font-size: 2.5rem;
+            color: white;
+            transform: rotate(-3deg);
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.4);
         }
 
-        .school-logo img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
+        .brand-icon:hover {
+            transform: rotate(0deg) scale(1.05);
         }
 
-        .school-name h2 {
-            color: #2c3e50;
-            font-size: 1.5rem;
+        .brand-text h1 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+
+        .brand-text p {
+            color: #5f6b7a;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .specialist-mini {
+            background: linear-gradient(145deg, #FFE66D, #FFB347);
+            padding: 15px 30px;
+            border-radius: 60px;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
             font-weight: 700;
+            box-shadow: 0 10px 20px rgba(255, 180, 70, 0.3);
+        }
+
+        .specialist-mini i {
+            margin-left: 8px;
+        }
+
+        /* ===== القناة ===== */
+        .whatsapp-channel {
+            background: linear-gradient(115deg, #25D36620, #128C7E20);
+            border: 3px solid #25D366;
+            border-radius: 60px;
+            padding: 20px 35px;
+            margin: 30px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        .channel-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .channel-icon {
+            width: 70px;
+            height: 70px;
+            background: #25D366;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: white;
+        }
+
+        .channel-text h3 {
+            font-size: 1.8rem;
+            color: #075E54;
             margin-bottom: 5px;
         }
 
-        .school-name p {
-            color: #5f6b7a;
-            font-size: 1rem;
-            font-weight: 500;
-        }
-
-        .specialist-info {
-            text-align: left;
-            background: linear-gradient(135deg, #8bc34a15, #64b5f615);
-            padding: 10px 25px;
-            border-radius: 40px;
-            border-right: 4px solid #8bc34a;
-        }
-
-        .specialist-info h3 {
-            color: #2c3e50;
-            font-size: 1.3rem;
+        .channel-text p {
+            color: #128C7E;
             font-weight: 600;
         }
 
-        .specialist-info p {
-            color: #5f6b7a;
-            font-size: 0.95rem;
+        .channel-btn {
+            background: #25D366;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 60px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px #25D36670;
         }
 
-        /* القائمة المنسدلة الاحترافية */
-        .navbar {
+        .channel-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px #25D366;
+        }
+
+        /* ===== قسم الترحيب المطور ===== */
+        .welcome-message {
             background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
-            border-radius: 60px;
-            padding: 10px 25px;
-            margin: 20px 0 30px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.03);
-            border: 1px solid rgba(255,255,255,0.8);
-        }
-
-        .nav-menu {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            list-style: none;
-            gap: 35px;
-            flex-wrap: wrap;
-        }
-
-        .nav-item {
-            position: relative;
-        }
-
-        .nav-link {
-            color: #2c3e50;
-            font-size: 1.1rem;
-            font-weight: 600;
-            padding: 10px 0;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-            border-bottom: 3px solid transparent;
-        }
-
-        .nav-link:hover {
-            color: #8bc34a;
-            border-bottom-color: #8bc34a;
-        }
-
-        .nav-link i {
-            font-size: 1rem;
-            transition: transform 0.3s ease;
-        }
-
-        .nav-item:hover .nav-link i {
-            transform: rotate(180deg);
-        }
-
-        /* القوائم المنسدلة */
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            min-width: 240px;
-            background: white;
-            border-radius: 25px;
-            padding: 15px 0;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px);
-            transition: all 0.3s ease;
-            z-index: 100;
-            border: 2px solid #f0f7f5;
-        }
-
-        .nav-item:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(5px);
-        }
-
-        .dropdown-item {
-            padding: 12px 25px;
-            color: #2c3e50;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 500;
-        }
-
-        .dropdown-item:hover {
-            background: linear-gradient(90deg, #8bc34a20, #64b5f620);
-            color: #8bc34a;
-            padding-right: 35px;
-        }
-
-        .dropdown-item i {
-            width: 20px;
-            color: #8bc34a;
-        }
-
-        /* قسم الترحيب والهدف */
-        .welcome-section {
-            background: linear-gradient(135deg, #ffffffd9, #f0f7f5e6);
-            backdrop-filter: blur(5px);
-            border-radius: 70px;
-            padding: 50px;
+            border-radius: 100px 100px 50px 50px;
+            padding: 60px;
             margin: 40px 0;
-            box-shadow: 0 30px 50px rgba(139, 195, 74, 0.1);
-            border: 2px solid #ffffff;
-            text-align: center;
+            border: 4px solid white;
+            box-shadow: 0 30px 60px rgba(255, 180, 70, 0.2);
             position: relative;
             overflow: hidden;
         }
 
-        .welcome-section::before {
-            content: '✨';
+        .welcome-message::before {
+            content: '🌸✨';
             position: absolute;
             top: 20px;
             right: 30px;
             font-size: 3rem;
-            opacity: 0.2;
-            animation: sparkle 3s infinite;
+            opacity: 0.3;
         }
 
-        .welcome-section::after {
-            content: '🌟';
-            position: absolute;
-            bottom: 20px;
-            left: 30px;
-            font-size: 3rem;
-            opacity: 0.2;
-            animation: sparkle 3s infinite 1.5s;
-        }
-
-        @keyframes sparkle {
-            0%, 100% { transform: scale(1); opacity: 0.2; }
-            50% { transform: scale(1.1); opacity: 0.4; }
-        }
-
-        .welcome-section h1 {
-            font-size: 3rem;
-            color: #2c3e50;
+        .welcome-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #FF6B6B;
             margin-bottom: 20px;
-            font-weight: 700;
+            text-align: center;
         }
 
-        .welcome-section .specialist-welcome {
+        .specialist-quote {
             font-size: 1.5rem;
-            color: #8bc34a;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-
-        .vision-box {
-            max-width: 800px;
-            margin: 30px auto 0;
-            padding: 30px;
-            background: rgba(255,255,255,0.5);
-            border-radius: 50px;
-            border: 2px dashed #8bc34a;
-        }
-
-        .vision-box h3 {
-            color: #2c3e50;
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-        }
-
-        .vision-box p {
-            color: #5f6b7a;
-            font-size: 1.2rem;
-            line-height: 1.8;
-        }
-
-        .vision-box .highlight {
-            color: #8bc34a;
+            color: #4ECDC4;
+            text-align: center;
+            margin-bottom: 30px;
             font-weight: 700;
         }
 
-        /* البطاقات الرئيسية */
-        .main-cards {
+        .welcome-text {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.6);
+            padding: 40px;
+            border-radius: 70px;
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: #2c3e50;
+            border: 2px dashed #FFB347;
+        }
+
+        .welcome-text p {
+            margin-bottom: 20px;
+        }
+
+        .welcome-text i {
+            color: #FF6B6B;
+            margin-left: 8px;
+        }
+
+        /* ===== بطاقات المبادرات الملونة ===== */
+        .initiatives-showcase {
+            margin: 60px 0;
+        }
+
+        .section-badge {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-badge h2 {
+            background: linear-gradient(145deg, #FF6B6B, #FFB347);
+            display: inline-block;
+            padding: 15px 50px;
+            border-radius: 60px;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 800;
+            box-shadow: 0 15px 30px rgba(255, 107, 107, 0.3);
+        }
+
+        .initiatives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            margin-top: 40px;
+        }
+
+        .initiative-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
+            border-radius: 60px;
+            padding: 35px;
+            border: 4px solid white;
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .initiative-card:nth-child(1) {
+            background: linear-gradient(145deg, #FFE5E5, #FFF0F0);
+        }
+        .initiative-card:nth-child(2) {
+            background: linear-gradient(145deg, #E5F6FF, #F0FAFF);
+        }
+        .initiative-card:nth-child(3) {
+            background: linear-gradient(145deg, #FFF4E0, #FFF9E6);
+        }
+
+        .initiative-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 50px rgba(255, 107, 107, 0.2);
+        }
+
+        .initiative-number {
+            font-size: 5rem;
+            font-weight: 900;
+            color: rgba(255, 107, 107, 0.2);
+            position: absolute;
+            top: 10px;
+            left: 20px;
+        }
+
+        .initiative-icon {
+            width: 90px;
+            height: 90px;
+            background: white;
+            border-radius: 40% 60% 40% 60%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: #FF6B6B;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .initiative-card h3 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .initiative-desc {
+            color: #5f6b7a;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .initiative-tag {
+            display: inline-block;
+            background: rgba(78, 205, 196, 0.2);
+            color: #4ECDC4;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 700;
+        }
+
+        /* ===== نصائح وإرشادات ===== */
+        .advice-section {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             margin: 50px 0;
         }
 
-        .main-card {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border-radius: 40px;
-            padding: 35px 25px;
-            text-align: center;
-            transition: all 0.4s ease;
-            border: 2px solid white;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.03);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
+        .advice-card {
+            background: white;
+            border-radius: 60px;
+            padding: 35px;
+            border: 4px solid #FFE66D;
+            box-shadow: 0 15px 30px rgba(255, 230, 109, 0.2);
         }
 
-        .main-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 6px;
-            background: linear-gradient(90deg, #8bc34a, #64b5f6, #ffb74d);
+        .advice-card:first-child {
+            border-color: #4ECDC4;
         }
 
-        .main-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(139, 195, 74, 0.15);
+        .advice-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
         }
 
-        .card-icon {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 25px;
-            background: linear-gradient(135deg, #8bc34a20, #64b5f620);
+        .advice-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #FF6B6B, #FFB347);
             border-radius: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 40px;
-            color: #8bc34a;
-            transition: all 0.3s ease;
-        }
-
-        .main-card:hover .card-icon {
-            transform: scale(1.1) rotate(5deg);
-            background: linear-gradient(135deg, #8bc34a30, #64b5f630);
-        }
-
-        .main-card h3 {
             font-size: 1.8rem;
+            color: white;
+        }
+
+        .advice-card h3 {
+            font-size: 1.9rem;
             color: #2c3e50;
-            margin-bottom: 10px;
         }
 
-        .main-card p {
-            color: #5f6b7a;
-            font-size: 1rem;
-            margin-bottom: 20px;
+        .advice-list {
+            list-style: none;
         }
 
-        .card-badge {
-            background: #8bc34a20;
-            color: #8bc34a;
-            padding: 5px 15px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            font-weight: 600;
+        .advice-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
         }
 
-        /* باقي الأقسام */
-        .section-container {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(5px);
-            border-radius: 60px;
-            padding: 40px;
-            margin: 40px 0;
+        .advice-list li i {
+            color: #4ECDC4;
+            font-size: 1.2rem;
         }
 
-        .section-title {
+        /* ===== المقياس النفسي ===== */
+        .scale-box {
+            background: linear-gradient(145deg, #A8E6CF, #DCEDC2);
+            border-radius: 80px;
+            padding: 50px;
+            margin: 50px 0;
+            border: 5px solid white;
+        }
+
+        .scale-header {
             text-align: center;
             margin-bottom: 40px;
         }
 
-        .section-title h2 {
-            font-size: 2.2rem;
+        .scale-header h2 {
+            font-size: 2.8rem;
             color: #2c3e50;
-            display: inline-block;
-            padding: 0 25px;
-            background: white;
-            border-radius: 60px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+            margin-bottom: 10px;
         }
 
-        .grid-4 {
+        .scale-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
         }
 
-        .item-card {
+        .scale-item {
             background: white;
-            border-radius: 35px;
+            border-radius: 50px;
             padding: 25px;
             text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.02);
-            border: 2px solid #f0f7f5;
         }
 
-        .item-card:hover {
-            transform: scale(1.03);
-            border-color: #8bc34a;
+        .scale-item h4 {
+            font-size: 1.5rem;
+            color: #FF6B6B;
+            margin-bottom: 15px;
         }
 
-        .item-icon {
-            width: 70px;
-            height: 70px;
-            margin: 0 auto 15px;
-            background: linear-gradient(135deg, #8bc34a20, #64b5f620);
-            border-radius: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            color: #8bc34a;
+        .scale-emojis {
+            font-size: 2rem;
+            margin: 15px 0;
         }
 
-        .btn-action {
-            background: linear-gradient(135deg, #8bc34a, #64b5f6);
+        .btn-scale {
+            background: #4ECDC4;
             color: white;
             border: none;
-            padding: 10px 25px;
+            padding: 12px 25px;
             border-radius: 40px;
-            font-size: 0.95rem;
             font-weight: 600;
             cursor: pointer;
-            margin-top: 15px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(139, 195, 74, 0.3);
+            transition: 0.3s;
         }
 
-        .btn-action:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(139, 195, 74, 0.4);
-        }
-
-        /* الفوتر */
-        footer {
-            background: rgba(255, 255, 255, 0.85);
+        /* ===== نموذج حجز الاستشارة ===== */
+        .booking-section {
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
-            border-radius: 50px 50px 0 0;
-            padding: 40px 30px 20px;
-            margin-top: 50px;
-            border-top: 3px solid #8bc34a;
+            border-radius: 100px;
+            padding: 50px;
+            margin: 60px 0;
+            border: 5px solid #FFB347;
         }
 
-        .footer-grid {
+        .booking-form {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .form-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #FF6B6B;
+            margin-bottom: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 18px 25px;
+            border: 3px solid #FFE66D;
+            border-radius: 60px;
+            font-size: 1.1rem;
+            font-family: inherit;
+            background: white;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #4ECDC4;
+            outline: none;
+            box-shadow: 0 0 0 5px rgba(78, 205, 196, 0.2);
+        }
+
+        .form-group textarea {
+            border-radius: 40px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #FF6B6B, #FFB347);
+            color: white;
+            border: none;
+            padding: 20px 50px;
+            border-radius: 60px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+            box-shadow: 0 15px 30px rgba(255, 107, 107, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 107, 107, 0.4);
+        }
+
+        /* ===== فوتر ===== */
+        footer {
+            background: #2c3e50;
+            border-radius: 80px 80px 0 0;
+            padding: 50px 40px 20px;
+            margin-top: 70px;
+            color: white;
+        }
+
+        .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
@@ -543,26 +588,12 @@
         }
 
         .footer-col h4 {
-            color: #2c3e50;
-            font-size: 1.3rem;
+            color: #FFE66D;
+            font-size: 1.5rem;
             margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .footer-col h4::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 60px;
-            height: 3px;
-            background: #8bc34a;
-            border-radius: 3px;
         }
 
         .footer-col p {
-            color: #5f6b7a;
             margin-bottom: 10px;
             display: flex;
             align-items: center;
@@ -570,385 +601,281 @@
         }
 
         .footer-col i {
-            color: #8bc34a;
-            width: 25px;
+            color: #4ECDC4;
         }
 
         .copyright {
             text-align: center;
             padding-top: 30px;
             margin-top: 30px;
-            border-top: 2px solid #e0eae8;
-            color: #5f6b7a;
-        }
-
-        /* تحسينات متجاوبة */
-        @media (max-width: 992px) {
-            .top-header {
-                flex-direction: column;
-                text-align: center;
-            }
-            .school-info {
-                flex-direction: column;
-            }
-            .nav-menu {
-                gap: 20px;
-            }
-            .welcome-section h1 {
-                font-size: 2.2rem;
-            }
+            border-top: 2px solid #ffffff20;
+            color: #a0b8cc;
         }
     </style>
 </head>
 <body>
-    <!-- الغيوم -->
-    <div class="clouds">
-        <div class="cloud cloud1"></div>
-        <div class="cloud cloud2"></div>
+    <div class="bg-pattern">
+        <div></div><div></div><div></div><div></div>
     </div>
-    <div class="omani-border"></div>
 
     <div class="container">
-        <!-- الهيدر مع الشعار -->
-        <div class="top-header">
-            <div class="school-info">
-                <div class="school-logo">
-                    <!-- ضع رابط شعار المدرسة هنا داخل src -->
-                    <img src="https://k.top4top.io/p_37227w2db1.jpeg" alt="شعار مدرسة قلعة الفكر" onerror="this.src='https://via.placeholder.com/70x70/8bc34a/ffffff?text=شعار'">
+        <!-- ===== الهيدر الجديد ===== -->
+        <header class="happy-header">
+            <div class="platform-brand">
+                <div class="brand-icon">
+                    <i class="fas fa-heart-circle-check"></i>
                 </div>
-                <div class="school-name">
-                    <h2>مدرسة قلعة الفكر للتعليم الأساسي (١-٤)</h2>
-                    <p>محافظة ظفار - سلطنة عمان</p>
+                <div class="brand-text">
+                    <h1>اطمئن</h1>
+                    <p><i class="fas fa-feather"></i> للدعم النفسي المدرسي</p>
                 </div>
             </div>
-            <div class="specialist-info">
-                <h3>أ. سامية أحمد سالم المعشني</h3>
-                <p><i class="fas fa-star" style="color: #ffb74d;"></i> الإخصائية النفسية</p>
+            <div class="specialist-mini">
+                <i class="fas fa-star"></i> أ. سامية أحمد المعشني
+            </div>
+        </header>
+
+        <!-- ===== رابط قناة الواتساب ===== -->
+        <div class="whatsapp-channel">
+            <div class="channel-info">
+                <div class="channel-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <div class="channel-text">
+                    <h3>وعي رقمي آمن</h3>
+                    <p>قناة متخصصة للتوعية الرقمية</p>
+                </div>
+            </div>
+            <a href="https://whatsapp.com/channel/0029VbC8n5X2P59q4GCGmj2l" target="_blank" class="channel-btn">
+                <i class="fab fa-whatsapp"></i> تابع القناة
+            </a>
+        </div>
+
+        <!-- ===== الكلمة الترحيبية المطورة ===== -->
+        <div class="welcome-message">
+            <div class="welcome-title">مرحباً بكم في فضائي الإرشادي الرقمي</div>
+            <div class="specialist-quote">منصة اطمئن ✨</div>
+            <div class="welcome-text">
+                <p><i class="fas fa-quote-right"></i> يسعدني أن أرحب بكم في هذه المنصة التي ولدت من إيماني العميق بأن <strong>"بناء الطفل يبدأ بكلمة طيبة وبيئة آمنة"</strong>. بصفتي أخصائية نفسية لطلاب الحلقة الأولى، أؤمن أن دوري يتجاوز أسوار المكتب ليصل إلى كل زاوية في مدرستنا، وإلى كل بيت يطمح لرؤية طفله متزناً وسعيداً.</p>
+                <p>لقد خصصتُ هذا الموقع ليكون:</p>
+                <p>📚 <strong>سجلاً وثائقياً</strong> لمبادراتي وبرامجي التي أقدمها لأحبائي الصغار.<br>
+                🌸 <strong>نافذة توعوية</strong> تشارككم أفضل الممارسات التربوية والنفسية بأسلوب حديث ومبسط.<br>
+                🤝 <strong>جسراً للتواصل المهني</strong> الذي يعكس شغفي في تطوير شخصية الطالب ودعمه ليواجه تحديات نموه بكل ثقة.</p>
+                <p>شكراً لكونكم شركاء في هذه الرحلة، وأتمنى أن تجدوا في ثنايا هذه الصفحات ما يلهمكم ويخدم مسيرتنا التربوية المشتركة. 💖</p>
             </div>
         </div>
 
-        <!-- القائمة المنسدلة الاحترافية -->
-        <nav class="navbar">
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <span class="nav-link"><i class="fas fa-home"></i> الرئيسية</span>
-                </li>
-                <li class="nav-item">
-                    <span class="nav-link"><i class="fas fa-child"></i> قسم الأطفال <i class="fas fa-chevron-down"></i></span>
-                    <div class="dropdown-menu">
-                        <div class="dropdown-item" onclick="scrollToSection('kids-videos')"><i class="fas fa-video"></i> فيديوهات توعوية</div>
-                        <div class="dropdown-item" onclick="scrollToSection('kids-games')"><i class="fas fa-gamepad"></i> ألعاب نفسية</div>
-                        <div class="dropdown-item" onclick="scrollToSection('kids-coloring')"><i class="fas fa-paint-brush"></i> مكتبة التلوين</div>
-                        <div class="dropdown-item" onclick="scrollToSection('kids-stories')"><i class="fas fa-book-open"></i> قصصي الهادئة</div>
+        <!-- ===== قسم المبادرات المدرسية ===== -->
+        <div class="initiatives-showcase">
+            <div class="section-badge">
+                <h2><i class="fas fa-sparkles"></i> مبادراتنا المدرسية <i class="fas fa-sparkles"></i></h2>
+            </div>
+            <div class="initiatives-grid">
+                <!-- المبادرة 1 -->
+                <div class="initiative-card">
+                    <div class="initiative-number">١</div>
+                    <div class="initiative-icon"><i class="fas fa-shield-halved"></i></div>
+                    <h3>وعي رقمي آمن</h3>
+                    <div class="initiative-desc">
+                        برنامج توعوي لتعزيز الاستخدام الآمن للإنترنت، وحماية الطفل من مخاطر العالم الرقمي، وتعزيز المواطنة الرقمية.
                     </div>
-                </li>
-                <li class="nav-item">
-                    <span class="nav-link"><i class="fas fa-users"></i> أولياء الأمور <i class="fas fa-chevron-down"></i></span>
-                    <div class="dropdown-menu">
-                        <div class="dropdown-item" onclick="scrollToSection('parents-appointment')"><i class="fas fa-calendar-check"></i> حجز استشارة</div>
-                        <div class="dropdown-item" onclick="scrollToSection('parents-guide')"><i class="fas fa-book"></i> الدليل التربوي</div>
-                        <div class="dropdown-item" onclick="scrollToSection('parents-suggestions')"><i class="fas fa-inbox"></i> صندوق الاقتراحات</div>
-                        <div class="dropdown-item" onclick="scrollToSection('parents-workshops')"><i class="fas fa-chalkboard-teacher"></i> ورش العمل</div>
+                    <span class="initiative-tag"><i class="fab fa-whatsapp"></i> قناة متخصصة</span>
+                </div>
+                <!-- المبادرة 2 -->
+                <div class="initiative-card">
+                    <div class="initiative-number">٢</div>
+                    <div class="initiative-icon"><i class="fas fa-hand"></i></div>
+                    <h3>التنمر وتأثيره النفسي</h3>
+                    <div class="initiative-desc">
+                        مشروع متكامل للتوعية بآثار التنمر، وكيفية التعامل مع المتنمر والضحية، وبناء بيئة مدرسية آمنة للجميع.
                     </div>
-                </li>
-                <li class="nav-item">
-                    <span class="nav-link"><i class="fas fa-medal"></i> مبادرات الأستاذة <i class="fas fa-chevron-down"></i></span>
-                    <div class="dropdown-menu">
-                        <div class="dropdown-item" onclick="scrollToSection('initiatives-projects')"><i class="fas fa-seedling"></i> صباح النعناع</div>
-                        <div class="dropdown-item" onclick="scrollToSection('initiatives-wall')"><i class="fas fa-award"></i> جدارية الشكر</div>
-                        <div class="dropdown-item" onclick="scrollToSection('initiatives-plan')"><i class="fas fa-calendar-alt"></i> الخطة الإرشادية</div>
-                        <div class="dropdown-item" onclick="scrollToSection('initiatives-gallery')"><i class="fas fa-images"></i> معرض الإنجازات</div>
+                    <span class="initiative-tag"><i class="fas fa-heart"></i> دعم نفسي</span>
+                </div>
+                <!-- المبادرة 3 -->
+                <div class="initiative-card">
+                    <div class="initiative-number">٣</div>
+                    <div class="initiative-icon"><i class="fas fa-microphone"></i></div>
+                    <h3>المذيع الصغير - صدى القلعة</h3>
+                    <div class="initiative-desc">
+                        برنامج إذاعي مدرسي يقدمه طلابنا الصغار، يعزز الثقة بالنفس، ويطور مهارات التواصل والإلقاء لديهم.
                     </div>
-                </li>
-                <li class="nav-item">
-                    <span class="nav-link"><i class="fas fa-phone-alt"></i> تواصل معنا</span>
-                </li>
-            </ul>
-        </nav>
-
-        <!-- قسم الترحيب والهدف -->
-        <div class="welcome-section">
-            <h1>نفسيتي السعيدة</h1>
-            <div class="specialist-welcome">
-                <i class="fas fa-heart" style="color: #ff6b6b;"></i> 
-                ترحب بكم الأخصائية النفسية: سامية أحمد سالم المعشني
-                <i class="fas fa-heart" style="color: #ff6b6b;"></i>
-            </div>
-            <div class="vision-box">
-                <h3>رؤيتنا: منصة نفسية رائدة</h3>
-                <p>نهدف إلى إنشاء <span class="highlight">المنصة النفسية الرائدة</span> في محافظة ظفار، لدعم الصحة النفسية لأطفال الحلقة الأولى (الصفوف ١-٤) وأسرهم، من خلال تقديم محتوى إبداعي وتفاعلي يعزز الثقة بالنفس، ويدير المشاعر، ويبني جيلاً واعياً ومتوازنًا نفسيًا في بيئة آمنة ومحفزة.</p>
-                <p style="margin-top: 20px;"><i class="fas fa-quote-right" style="color: #8bc34a;"></i> معاً نبني عقولاً سليمة في أجسام سليمة <i class="fas fa-quote-left" style="color: #8bc34a;"></i></p>
-            </div>
-        </div>
-
-        <!-- البطاقات الرئيسية -->
-        <div class="main-cards">
-            <div class="main-card" onclick="scrollToSection('kids-section')">
-                <div class="card-icon"><i class="fas fa-child"></i></div>
-                <h3>الأطفال</h3>
-                <p>فيديوهات، ألعاب، قصص وأنشطة تفاعلية</p>
-                <span class="card-badge">اكتشف عالمك</span>
-            </div>
-            <div class="main-card" onclick="scrollToSection('parents-section')">
-                <div class="card-icon"><i class="fas fa-users"></i></div>
-                <h3>أولياء الأمور</h3>
-                <p>استشارات، نصائح تربوية ودعم أسري</p>
-                <span class="card-badge">شريك النجاح</span>
-            </div>
-            <div class="main-card" onclick="scrollToSection('initiatives-section')">
-                <div class="card-icon"><i class="fas fa-medal"></i></div>
-                <h3>مبادراتي</h3>
-                <p>إنجازات الأستاذة سامية وفعالياتنا</p>
-                <span class="card-badge">فخرنا</span>
-            </div>
-        </div>
-
-        <!-- قسم الفيديوهات -->
-        <div class="section-container" id="kids-videos">
-            <div class="section-title"><h2>🎬 فيديوهات توعوية للأطفال</h2></div>
-            <div class="grid-4">
-                <div class="item-card">
-                    <div class="item-icon"><i class="fas fa-smile"></i></div>
-                    <h4>قصة مشاعري</h4>
-                    <p>نتعرف على المشاعر الأربعة الأساسية</p>
-                    <button class="btn-action" onclick="watchVideo('feelings')"><i class="fas fa-play"></i> شاهد</button>
-                </div>
-                <div class="item-card">
-                    <div class="item-icon"><i class="fas fa-user-friends"></i></div>
-                    <h4>كيف نكون أصدقاء؟</h4>
-                    <p>مهارات اجتماعية للطفل</p>
-                    <button class="btn-action" onclick="watchVideo('friends')"><i class="fas fa-play"></i> شاهد</button>
-                </div>
-                <div class="item-card">
-                    <div class="item-icon"><i class="fas fa-moon"></i></div>
-                    <h4>سر النوم الهادئ</h4>
-                    <p>روتين ما قبل النوم</p>
-                    <button class="btn-action" onclick="watchVideo('sleep')"><i class="fas fa-play"></i> شاهد</button>
-                </div>
-                <div class="item-card">
-                    <div class="item-icon"><i class="fas fa-hand-holding-heart"></i></div>
-                    <h4>أنا أستطيع</h4>
-                    <p>قصة تعزيز الثقة بالنفس</p>
-                    <button class="btn-action" onclick="watchVideo('confidence')"><i class="fas fa-play"></i> شاهد</button>
+                    <span class="initiative-tag"><i class="fas fa-star"></i> صدى القلعة</span>
                 </div>
             </div>
         </div>
 
-        <!-- قسم الألعاب -->
-        <div class="section-container" id="kids-games">
-            <div class="section-title"><h2>🎮 الألعاب النفسية العلاجية</h2></div>
-            <div class="grid-4">
-                <div class="item-card">
-                    <div class="item-icon"><i class="fas fa-palette"></i></div>
-                    <h4>مشاعري وألواني</h4>
-                    <p>لون مشاعرك حسب الموقف</p>
-                    <button class="btn-action" onclick="playGame('feelings-game')"><i class="fas fa-gamepad"></i> العب</button>
+        <!-- ===== نصائح وإرشادات ===== -->
+        <div class="advice-section">
+            <!-- نصائح للطفل المطمئن -->
+            <div class="advice-card">
+                <div class="advice-header">
+                    <div class="advice-icon"><i class="fas fa-child"></i></div>
+                    <h3>طفل مطمئن</h3>
                 </div>
-                <div class="item-card">
-                    <div class="item-icon"><i class="fas fa-lungs"></i></div>
-                    <h4>التنفس مع السلحفاة</h4>
-                    <p>تمرين التنفس البصري</p>
-                    <button class="btn-action" onclick="startBreathing()"><i class="fas fa-play"></i> ابدأ</button>
+                <ul class="advice-list">
+                    <li><i class="fas fa-heart"></i> خصص وقتاً للاستماع لمشاعره يومياً</li>
+                    <li><i class="fas fa-heart"></i> علمه التنفس العميق عند الغضب</li>
+                    <li><i class="fas fa-heart"></i> كرر له "أنا فخور بك" باستمرار</li>
+                    <li><i class="fas fa-heart"></i> وفر له روتين نوم ثابت ومريح</li>
+                    <li><i class="fas fa-heart"></i> شاركه القراءة واللعب الهادئ</li>
+                </ul>
+            </div>
+            <!-- إرشادات لولي الأمر -->
+            <div class="advice-card">
+                <div class="advice-header">
+                    <div class="advice-icon"><i class="fas fa-family"></i></div>
+                    <h3>إرشادات لولي الأمر</h3>
                 </div>
-                <div class="item-card">
-                    <div class="item-icon"><i class="fas fa-draw-polygon"></i></div>
-                    <h4>المتاهة الهادئة</h4>
-                    <p>ساعد الحيوان لبيته</p>
-                    <button class="btn-action" onclick="playGame('maze')"><i class="fas fa-gamepad"></i> العب</button>
+                <ul class="advice-list">
+                    <li><i class="fas fa-check-circle"></i> كن قدوة في التعامل الرقمي الآمن</li>
+                    <li><i class="fas fa-check-circle"></i> راقب مشاعر طفلك وتغيراتها</li>
+                    <li><i class="fas fa-check-circle"></i> تجنب المقارنة مع الآخرين</li>
+                    <li><i class="fas fa-check-circle"></i> عزز ثقته بنفسه بالمسؤوليات الصغيرة</li>
+                    <li><i class="fas fa-check-circle"></i> تواصل مع المدرسة باستمرار</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ===== المقياس النفسي للحلقة الأولى ===== -->
+        <div class="scale-box">
+            <div class="scale-header">
+                <h2><i class="fas fa-clipboard-list"></i> مقياس المشاعر للصغار</h2>
+                <p>اختر الوجه الذي يعبر عن مشاعرك اليوم</p>
+            </div>
+            <div class="scale-grid">
+                <div class="scale-item">
+                    <h4>سعيد 😊</h4>
+                    <div class="scale-emojis">😊😄😁</div>
+                    <button class="btn-scale" onclick="alert('أشعر بالسعادة!')">اختر</button>
                 </div>
-                <div class="item-card">
-                    <div class="item-icon"><i class="fas fa-heart"></i></div>
-                    <h4>بطاقات الامتنان</h4>
-                    <p>أنا ممتن لـ... لأن...</p>
-                    <button class="btn-action" onclick="playGame('gratitude')"><i class="fas fa-heart"></i> اختر</button>
+                <div class="scale-item">
+                    <h4>حزين 😢</h4>
+                    <div class="scale-emojis">😢😭😔</div>
+                    <button class="btn-scale" onclick="alert('أشعر بالحزن، أحتاج حديثاً')">اختر</button>
+                </div>
+                <div class="scale-item">
+                    <h4>خائف 😨</h4>
+                    <div class="scale-emojis">😨😱😰</div>
+                    <button class="btn-scale" onclick="alert('لا تخف، أنا معك')">اختر</button>
+                </div>
+                <div class="scale-item">
+                    <h4>غاضب 😠</h4>
+                    <div class="scale-emojis">😠🤬😤</div>
+                    <button class="btn-scale" onclick="alert('هيا نتنفس معاً لنهدهد غضبك')">اختر</button>
                 </div>
             </div>
         </div>
 
-        <!-- قسم أولياء الأمور -->
-        <div class="section-container" id="parents-section">
-            <div class="section-title"><h2>👨‍👩‍👧‍👦 أولياء الأمور</h2></div>
-            <div class="grid-4">
-                <div class="item-card" id="parents-appointment">
-                    <div class="item-icon"><i class="fas fa-calendar-check"></i></div>
-                    <h4>حجز استشارة</h4>
-                    <p>تواصل مباشر مع الأخصائية</p>
-                    <button class="btn-action" onclick="bookAppointment()"><i class="fas fa-whatsapp"></i> احجز</button>
+        <!-- ===== نموذج حجز الاستشارة ===== -->
+        <div class="booking-section" id="booking">
+            <h2 class="form-title"><i class="fas fa-calendar-check"></i> احجز استشارتك النفسية</h2>
+            <form class="booking-form" id="consultationForm" onsubmit="return bookConsultation(event)">
+                <div class="form-group">
+                    <label>👤 اسم ولي الأمر</label>
+                    <input type="text" id="parentName" placeholder="الاسم الثلاثي" required>
                 </div>
-                <div class="item-card" id="parents-guide">
-                    <div class="item-icon"><i class="fas fa-book-open"></i></div>
-                    <h4>الدليل التربوي</h4>
-                    <p>نصائح يومية قصيرة</p>
-                    <button class="btn-action" onclick="showGuide()"><i class="fas fa-read"></i> اقرأ</button>
+                <div class="form-group">
+                    <label>📱 رقم الهاتف</label>
+                    <input type="tel" id="phone" placeholder="9XXXXXXX" required>
                 </div>
-                <div class="item-card" id="parents-suggestions">
-                    <div class="item-icon"><i class="fas fa-inbox"></i></div>
-                    <h4>صندوق الاقتراحات</h4>
-                    <p>شاركنا رأيك باستفساراتك</p>
-                    <button class="btn-action" onclick="openSuggestions()"><i class="fas fa-pen"></i> أرسل</button>
+                <div class="form-group">
+                    <label>👦 اسم الطالب والصف</label>
+                    <input type="text" id="studentInfo" placeholder="مثال: أحمد الصف الثاني" required>
                 </div>
-                <div class="item-card" id="parents-workshops">
-                    <div class="item-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-                    <h4>ورش العمل</h4>
-                    <p>ورش قادمة للأهالي</p>
-                    <button class="btn-action" onclick="showWorkshops()"><i class="fas fa-calendar"></i> استعرض</button>
+                <div class="form-group">
+                    <label>📌 نوع الاستشارة</label>
+                    <select id="consultType" required>
+                        <option value="">-- اختر نوع الاستشارة --</option>
+                        <option value="سلوكية">استشارة سلوكية</option>
+                        <option value="دراسية">صعوبات تعلم / تحصيل دراسي</option>
+                        <option value="نفسية">دعم نفسي / مشاعر</option>
+                        <option value="أسريه">إرشاد أسري</option>
+                        <option value="رقمي">استشارة رقمية (وعي رقمي)</option>
+                    </select>
                 </div>
-            </div>
+                <div class="form-group">
+                    <label>💬 وصف مختصر للاستشارة</label>
+                    <textarea id="description" rows="4" placeholder="اكتب نبذة بسيطة عن ما يحتاج الطالب..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn"><i class="fab fa-whatsapp"></i> إرسال الطلب عبر واتساب</button>
+            </form>
         </div>
 
-        <!-- قسم مبادرات الأستاذة -->
-        <div class="section-container" id="initiatives-section">
-            <div class="section-title"><h2>🏆 مبادرات الأستاذة سامية</h2></div>
-            <div class="grid-4">
-                <div class="item-card" id="initiatives-projects">
-                    <div class="item-icon"><i class="fas fa-seedling"></i></div>
-                    <h4>صباح النعناع</h4>
-                    <p>مبادرة تخفيف التوتر الصباحي</p>
-                    <button class="btn-action" onclick="showInitiative('mint')"><i class="fas fa-info-circle"></i> التفاصيل</button>
-                </div>
-                <div class="item-card" id="initiatives-wall">
-                    <div class="item-icon"><i class="fas fa-award"></i></div>
-                    <h4>جدارية الشكر</h4>
-                    <p>تكريم الطلاب المتميزين</p>
-                    <button class="btn-action" onclick="showWall()"><i class="fas fa-star"></i> عرض</button>
-                </div>
-                <div class="item-card" id="initiatives-plan">
-                    <div class="item-icon"><i class="fas fa-calendar-alt"></i></div>
-                    <h4>الخطة الإرشادية</h4>
-                    <p>أنشطتنا لهذا الشهر</p>
-                    <button class="btn-action" onclick="showPlan()"><i class="fas fa-list"></i> استعرض</button>
-                </div>
-                <div class="item-card" id="initiatives-gallery">
-                    <div class="item-icon"><i class="fas fa-images"></i></div>
-                    <h4>معرض الإنجازات</h4>
-                    <p>صور مبادراتنا السابقة</p>
-                    <button class="btn-action" onclick="showGallery()"><i class="fas fa-camera"></i> شاهد</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- الفوتر -->
+        <!-- ===== فوتر ===== -->
         <footer>
-            <div class="footer-grid">
+            <div class="footer-content">
                 <div class="footer-col">
-                    <h4>نفسيتي السعيدة</h4>
-                    <p><i class="fas fa-map-marker-alt"></i> محافظة ظفار، سلطنة عمان</p>
-                    <p><i class="fas fa-school"></i> مدرسة قلعة الفكر (١-٤)</p>
-                    <p><i class="fas fa-user-tie"></i> أ. سامية أحمد المعشني</p>
+                    <h4>اطمئن</h4>
+                    <p><i class="fas fa-location-dot"></i> محافظة ظفار - سلطنة عمان</p>
+                    <p><i class="fas fa-school"></i> مدرسة قلعة الفكر</p>
                 </div>
                 <div class="footer-col">
-                    <h4>تواصل معنا</h4>
-                    <p><i class="fab fa-whatsapp"></i> واتساب: +968XXXXXXXX</p>
-                    <p><i class="far fa-envelope"></i> samia@qalaatalfikr.edu.om</p>
+                    <h4>الأخصائية</h4>
+                    <p><i class="fas fa-user-tie"></i> أ. سامية أحمد المعشني</p>
+                    <p><i class="fas fa-envelope"></i> samia@atmeen.om</p>
                 </div>
                 <div class="footer-col">
                     <h4>روابط سريعة</h4>
-                    <p onclick="scrollToSection('kids-section')" style="cursor: pointer;"><i class="fas fa-chevron-left"></i> قسم الأطفال</p>
-                    <p onclick="scrollToSection('parents-section')" style="cursor: pointer;"><i class="fas fa-chevron-left"></i> أولياء الأمور</p>
-                    <p onclick="scrollToSection('initiatives-section')" style="cursor: pointer;"><i class="fas fa-chevron-left"></i> مبادراتي</p>
+                    <p onclick="scrollToTop()" style="cursor:pointer;"><i class="fas fa-chevron-left"></i> أعلى الصفحة</p>
+                    <p onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})" style="cursor:pointer;"><i class="fas fa-chevron-left"></i> حجز استشارة</p>
                 </div>
             </div>
             <div class="copyright">
-                <p>© 2024 المنصة النفسية الرائدة - جميع الحقوق محفوظة لمدرسة قلعة الفكر</p>
-                <p style="margin-top: 10px;">الإشراف والمحتوى: الأخصائية النفسية سامية أحمد سالم المعشني</p>
+                <p>© 2024 منصة اطمئن - جميع الحقوق محفوظة</p>
             </div>
         </footer>
     </div>
 
-    <!-- أداة التنفس المنبثقة -->
-    <div id="breathingPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 40px; border-radius: 70px; box-shadow: 0 30px 60px rgba(0,0,0,0.2); z-index: 1000; text-align: center; border: 5px solid #8bc34a;">
-        <h2 style="color: #2c3e50; margin-bottom: 30px;">🌬️ تمرين التنفس</h2>
-        <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #8bc34a, #64b5f6); border-radius: 50%; margin: 20px auto; animation: breathAnim 4s infinite ease-in-out;"></div>
-        <p style="font-size: 1.3rem; margin: 20px 0; color: #5f6b7a;">شهيق... زفير...</p>
-        <button class="btn-action" onclick="document.getElementById('breathingPopup').style.display='none'">إغلاق</button>
-    </div>
-
-    <style>
-        @keyframes breathAnim {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.5); }
-        }
-    </style>
-
     <script>
-        // التمرير للأقسام
-        function scrollToSection(sectionId) {
-            const element = document.getElementById(sectionId);
-            if(element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            } else {
-                alert('القسم قيد التطوير 🌸');
-            }
+        // التمرير للأعلى
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // الفيديوهات
-        function watchVideo(video) {
-            const videos = {
-                feelings: '🎬 قصة مشاعري: نفرح، نحزن، نخاف ونغضب - كلها مشاعر طبيعية',
-                friends: '🎬 كيف نكون أصدقاء؟ بالمشاركة واللعب والابتسامة',
-                sleep: '🎬 سر النوم الهادئ: قصة قبل النوم وضوء خافت',
-                confidence: '🎬 أنا أستطيع: قصة تعزيز الثقة بالنفس'
-            };
-            alert(videos[video] || 'جاري تحميل الفيديو...');
+        // نموذج الحجز عبر الواتساب
+        function bookConsultation(event) {
+            event.preventDefault();
+            
+            // جمع بيانات النموذج
+            const parentName = document.getElementById('parentName').value;
+            const phone = document.getElementById('phone').value;
+            const studentInfo = document.getElementById('studentInfo').value;
+            const consultType = document.getElementById('consultType').value;
+            const description = document.getElementById('description').value;
+
+            // تكوين رسالة الواتساب
+            const message = `مرحباً أ. سامية،
+أود حجز استشارة نفسية:
+👤 ولي الأمر: ${parentName}
+📱 رقم الهاتف: ${phone}
+👦 الطالب: ${studentInfo}
+📌 نوع الاستشارة: ${consultType}
+💬 الوصف: ${description}
+
+شكراً لكم.`;
+
+            // رقم الواتساب الخاص بالأخصائية (يُرجى تغييره)
+            const specialistNumber = "96893581980"; // ضع رقم الواتساب هنا
+            
+            // فتح الواتساب
+            window.open(`https://wa.me/${specialistNumber}?text=${encodeURIComponent(message)}`, '_blank');
+            
+            // رسالة تأكيد
+            alert('تم تجهيز الطلب، سيتم تحويلك إلى واتساب للتواصل المباشر مع الأخصائية');
+            return false;
         }
 
-        // الألعاب
-        function playGame(game) {
-            const games = {
-                'feelings-game': '🎨 لعبة المشاعر: اختر الموقف ثم لون المشاعر المناسبة',
-                'maze': '🌀 ساعد الحيوان في الوصول إلى بيته',
-                'gratitude': '💝 أنا ممتن لـ: عائلتي، أصدقائي، مدرستي'
-            };
-            alert(games[game] || 'اللعبة قيد التطوير');
-        }
-
-        // التنفس
-        function startBreathing() {
-            document.getElementById('breathingPopup').style.display = 'block';
-        }
-
-        // أولياء الأمور
-        function bookAppointment() {
-            const phone = "968XXXXXXXX"; // ضع رقم الواتساب هنا
-            const message = "مرحباً أ. سامية، أرغب في حجز استشارة نفسية";
-            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
-        }
-
-        function showGuide() {
-            alert('📚 الدليل التربوي السريع:\n1. استمع لطفلك جيداً\n2. خصص وقتاً للعب يومياً\n3. كن قدوة في الهدوء');
-        }
-
-        function openSuggestions() {
-            const suggestion = prompt('اكتب اقتراحك أو استفسارك:');
-            if(suggestion) alert('شكراً لك! سيتم الرد قريباً');
-        }
-
-        function showWorkshops() {
-            alert('📅 ورش قادمة:\n- وربة كيف نحمي أطفالنا (الخميس القادم)\n- فن الحوار مع الطفل');
-        }
-
-        // مبادرات
-        function showInitiative(init) {
-            if(init === 'mint') alert('🌿 صباح النعناع: كل صباء نبدأ بنشاط تنفسي مع النعناع الطبيعي');
-        }
-
-        function showWall() {
-            alert('🏅 تم تكريم 15 طالباً هذا الأسبوع');
-        }
-
-        function showPlan() {
-            alert('📅 خطة مارس: أسبوع المشاعر - أسبوع العائلة');
-        }
-
-        function showGallery() {
-            alert('📸 معرض الإنجازات: قيد التجهيز');
-        }
-
-        // التأكد من تحميل الشعار
-        window.addEventListener('load', function() {
-            // يمكنك إضافة كود للتحقق من تحميل الشعار هنا
+        // رسائل تفاعلية للمبادرات
+        document.querySelectorAll('.initiative-card').forEach((card, index) => {
+            card.addEventListener('click', () => {
+                const initiatives = [
+                    'مبادرة وعي رقمي آمن: نهدف لحماية أطفالنا من مخاطر الإنترنت',
+                    'مشروع التنمر: معاً لبيئة مدرسية خالية من التنمر',
+                    'برنامج المذيع الصغير: نعد جيلاً واثقاً من نفسه'
+                ];
+                alert(initiatives[index]);
+            });
         });
     </script>
 </body>
 </html>
-
