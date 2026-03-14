@@ -17,12 +17,12 @@
 
         body {
             font-family: 'Tajawal', 'Cairo', sans-serif;
-            background: linear-gradient(145deg, #fff9f0, #f0faff);
+            background: linear-gradient(145deg, #f8f4e9, #e6f0f0);
             color: #2c3e50;
             overflow-x: hidden;
         }
 
-        /* الخلفية الملونة المبهجة */
+        /* الخلفية الملونة المبهجة - أصبحت أكثر ديناميكية */
         .bg-pattern {
             position: fixed;
             top: 0;
@@ -37,39 +37,49 @@
         .bg-pattern div {
             position: absolute;
             border-radius: 50%;
-            filter: blur(60px);
+            filter: blur(70px);
+            animation: floatBg 20s infinite alternate ease-in-out;
         }
 
         .bg-pattern div:nth-child(1) {
-            width: 300px;
-            height: 300px;
-            background: #ff9a9e;
-            top: -50px;
-            right: -50px;
+            width: 350px;
+            height: 350px;
+            background: #ffb5a7;
+            top: -80px;
+            right: -80px;
+            animation-duration: 25s;
         }
 
         .bg-pattern div:nth-child(2) {
-            width: 400px;
-            height: 400px;
-            background: #fad0c4;
-            bottom: -100px;
-            left: -100px;
+            width: 450px;
+            height: 450px;
+            background: #b8e0d4;
+            bottom: -120px;
+            left: -120px;
+            animation-duration: 30s;
         }
 
         .bg-pattern div:nth-child(3) {
-            width: 350px;
-            height: 350px;
-            background: #a1c4fd;
-            top: 40%;
-            left: 20%;
+            width: 400px;
+            height: 400px;
+            background: #d4c2e8;
+            top: 35%;
+            left: 15%;
+            animation-duration: 22s;
         }
 
         .bg-pattern div:nth-child(4) {
-            width: 280px;
-            height: 280px;
-            background: #c2e9fb;
-            bottom: 20%;
-            right: 15%;
+            width: 320px;
+            height: 320px;
+            background: #ffe2b0;
+            bottom: 15%;
+            right: 10%;
+            animation-duration: 28s;
+        }
+
+        @keyframes floatBg {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(40px, 40px) scale(1.2); }
         }
 
         .container {
@@ -82,13 +92,13 @@
 
         /* ===== هيدر مبهج مع شعار المنصة ===== */
         .happy-header {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
             border-radius: 70px 70px 30px 30px;
             padding: 25px 35px;
             margin-bottom: 30px;
-            box-shadow: 0 20px 40px rgba(255, 154, 158, 0.2);
-            border: 3px solid white;
+            box-shadow: 0 20px 45px rgba(160, 130, 100, 0.15);
+            border: 3px solid rgba(255, 255, 255, 0.9);
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -105,26 +115,32 @@
         .brand-icon {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
-            border-radius: 30px 10px 30px 10px;
+            background: linear-gradient(135deg, #a8b5a5, #c5b39e);
+            border-radius: 40% 60% 40% 60%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 2.5rem;
             color: white;
             transform: rotate(-3deg);
-            transition: 0.3s;
-            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.4);
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 25px rgba(150, 130, 110, 0.3);
+            animation: softPulse 3s infinite alternate;
+        }
+
+        @keyframes softPulse {
+            from { box-shadow: 0 5px 15px rgba(168, 181, 165, 0.3); }
+            to { box-shadow: 0 15px 30px rgba(197, 179, 158, 0.6); }
         }
 
         .brand-icon:hover {
-            transform: rotate(0deg) scale(1.05);
+            transform: rotate(0deg) scale(1.08);
         }
 
         .brand-text h1 {
             font-size: 2.8rem;
             font-weight: 900;
-            background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+            background: linear-gradient(135deg, #6b8f7a, #b5947c);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             line-height: 1.2;
@@ -139,143 +155,219 @@
         }
 
         .specialist-mini {
-            background: linear-gradient(145deg, #FFE66D, #FFB347);
-            padding: 15px 30px;
+            background: linear-gradient(145deg, #dbbf9e, #b8a89a);
+            padding: 15px 35px;
             border-radius: 60px;
             color: white;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-shadow: 0 2px 5px rgba(0,0,0,0.1);
             font-weight: 700;
-            box-shadow: 0 10px 20px rgba(255, 180, 70, 0.3);
+            box-shadow: 0 10px 25px rgba(180, 150, 120, 0.3);
+            border: 2px solid rgba(255,255,255,0.5);
         }
 
         .specialist-mini i {
             margin-left: 8px;
+            color: #fae3cb;
         }
 
-        /* ===== القناة ===== */
+        /* ===== القناة (تم تحسينها) ===== */
         .whatsapp-channel {
-            background: linear-gradient(115deg, #25D36620, #128C7E20);
-            border: 3px solid #25D366;
-            border-radius: 60px;
-            padding: 20px 35px;
-            margin: 30px 0;
+            background: linear-gradient(115deg, #eaf5f0, #f3eee6);
+            border: none;
+            border-radius: 80px;
+            padding: 25px 40px;
+            margin: 30px 0 25px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 20px;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 15px 35px rgba(120, 140, 130, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .whatsapp-channel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: rgba(200, 220, 210, 0.2);
+            border-radius: 50%;
+            transform: translate(30px, -30px);
         }
 
         .channel-info {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 25px;
         }
 
         .channel-icon {
-            width: 70px;
-            height: 70px;
-            background: #25D366;
-            border-radius: 30px;
+            width: 80px;
+            height: 80px;
+            background: #25a57f;
+            border-radius: 40% 60% 40% 60%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             color: white;
+            transform: rotate(5deg);
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(37, 165, 127, 0.3);
+        }
+
+        .channel-icon:hover {
+            transform: rotate(0deg) scale(1.05);
         }
 
         .channel-text h3 {
-            font-size: 1.8rem;
-            color: #075E54;
+            font-size: 1.9rem;
+            color: #1b6d5e;
             margin-bottom: 5px;
+            font-weight: 800;
         }
 
         .channel-text p {
-            color: #128C7E;
+            color: #4d7a6e;
             font-weight: 600;
+            font-size: 1.1rem;
         }
 
         .channel-btn {
-            background: #25D366;
+            background: #1b8c70;
             color: white;
-            padding: 15px 40px;
-            border-radius: 60px;
+            padding: 15px 45px;
+            border-radius: 70px;
             font-size: 1.3rem;
             font-weight: 700;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            transition: 0.3s;
-            box-shadow: 0 10px 20px #25D36670;
+            gap: 12px;
+            transition: all 0.3s;
+            box-shadow: 0 10px 25px rgba(27, 140, 112, 0.4);
+            border: 2px solid rgba(255,255,255,0.4);
         }
 
         .channel-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px #25D366;
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 35px #1b8c70;
+            background: #147a60;
         }
 
-        /* ===== قسم الترحيب المطور ===== */
+        /* ===== قسم الترحيب المطور بشكل إبداعي ===== */
         .welcome-message {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            border-radius: 100px 100px 50px 50px;
-            padding: 60px;
-            margin: 40px 0;
-            border: 4px solid white;
-            box-shadow: 0 30px 60px rgba(255, 180, 70, 0.2);
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            border-radius: 120px 120px 60px 60px;
+            padding: 70px 60px;
+            margin: 20px 0 40px;
+            border: 3px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 35px 70px rgba(150, 130, 110, 0.2);
             position: relative;
             overflow: hidden;
         }
 
+        /* إطار زخرفي إبداعي مستوحى من الزخارف العمانية */
         .welcome-message::before {
-            content: '🌸✨';
+            content: '';
             position: absolute;
-            top: 20px;
-            right: 30px;
-            font-size: 3rem;
-            opacity: 0.3;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(180, 150, 120, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(120, 150, 130, 0.05) 0%, transparent 25%),
+                repeating-linear-gradient(45deg, 
+                    transparent, 
+                    transparent 15px, 
+                    rgba(170, 150, 130, 0.03) 15px, 
+                    rgba(170, 150, 130, 0.03) 30px),
+                repeating-linear-gradient(-45deg, 
+                    transparent, 
+                    transparent 20px, 
+                    rgba(140, 170, 150, 0.03) 20px, 
+                    rgba(140, 170, 150, 0.03) 40px);
+            border-radius: inherit;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* زخرفة إضافية على شكل أهلة ونجوم */
+        .welcome-message::after {
+            content: '🌙✨⭐🌿';
+            position: absolute;
+            bottom: 15px;
+            left: 30px;
+            font-size: 2.5rem;
+            opacity: 0.15;
+            transform: rotate(-5deg);
+            white-space: nowrap;
+            letter-spacing: 15px;
         }
 
         .welcome-title {
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             font-weight: 900;
-            color: #FF6B6B;
+            background: linear-gradient(135deg, #6b8f7a, #b5947c, #dbbf9e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
             text-align: center;
+            position: relative;
+            z-index: 2;
+            text-shadow: 2px 2px 20px rgba(180, 160, 130, 0.2);
         }
 
         .specialist-quote {
-            font-size: 1.5rem;
-            color: #4ECDC4;
-            text-align: center;
-            margin-bottom: 30px;
+            font-size: 1.7rem;
+            background: rgba(220, 200, 180, 0.3);
+            backdrop-filter: blur(5px);
+            display: inline-block;
+            padding: 10px 50px;
+            border-radius: 100px;
+            margin: 0 auto 35px;
             font-weight: 700;
+            color: #5e7b6b;
+            text-align: center;
+            width: fit-content;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            position: relative;
+            z-index: 2;
         }
 
         .welcome-text {
             max-width: 1000px;
             margin: 0 auto;
-            background: rgba(255,255,255,0.6);
-            padding: 40px;
-            border-radius: 70px;
+            background: rgba(255, 250, 240, 0.6);
+            backdrop-filter: blur(4px);
+            padding: 50px;
+            border-radius: 100px;
             font-size: 1.2rem;
-            line-height: 1.9;
+            line-height: 2;
             color: #2c3e50;
-            border: 2px dashed #FFB347;
+            border: 2px solid rgba(200, 180, 160, 0.3);
+            box-shadow: inset 0 0 50px rgba(200, 180, 160, 0.1);
+            position: relative;
+            z-index: 2;
         }
 
         .welcome-text p {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .welcome-text i {
-            color: #FF6B6B;
+            color: #b5947c;
             margin-left: 8px;
         }
 
-        /* ===== بطاقات المبادرات الملونة ===== */
+        /* تنسيقات باقي الأقسام (مع تحسين الألوان) */
         .initiatives-showcase {
             margin: 60px 0;
         }
@@ -286,14 +378,15 @@
         }
 
         .section-badge h2 {
-            background: linear-gradient(145deg, #FF6B6B, #FFB347);
+            background: linear-gradient(145deg, #b8a89a, #9bb0a5);
             display: inline-block;
-            padding: 15px 50px;
-            border-radius: 60px;
+            padding: 15px 60px;
+            border-radius: 70px;
             color: white;
             font-size: 2.5rem;
             font-weight: 800;
-            box-shadow: 0 15px 30px rgba(255, 107, 107, 0.3);
+            box-shadow: 0 15px 35px rgba(155, 176, 165, 0.3);
+            border: 3px solid rgba(255,255,255,0.3);
         }
 
         .initiatives-grid {
@@ -304,52 +397,60 @@
         }
 
         .initiative-card {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 250, 240, 0.85);
             backdrop-filter: blur(5px);
-            border-radius: 60px;
-            padding: 35px;
+            border-radius: 80px;
+            padding: 40px 35px;
             border: 4px solid white;
-            transition: 0.4s;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
+            cursor: pointer;
         }
 
         .initiative-card:nth-child(1) {
-            background: linear-gradient(145deg, #FFE5E5, #FFF0F0);
+            background: linear-gradient(145deg, #f5e8de, #fdf3e4);
         }
         .initiative-card:nth-child(2) {
-            background: linear-gradient(145deg, #E5F6FF, #F0FAFF);
+            background: linear-gradient(145deg, #e2efe9, #f0f7f0);
         }
         .initiative-card:nth-child(3) {
-            background: linear-gradient(145deg, #FFF4E0, #FFF9E6);
+            background: linear-gradient(145deg, #f6e7d8, #fef4e6);
         }
 
         .initiative-card:hover {
             transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 30px 50px rgba(255, 107, 107, 0.2);
+            box-shadow: 0 35px 60px rgba(150, 130, 110, 0.25);
         }
 
         .initiative-number {
             font-size: 5rem;
             font-weight: 900;
-            color: rgba(255, 107, 107, 0.2);
+            color: rgba(180, 160, 130, 0.2);
             position: absolute;
             top: 10px;
             left: 20px;
+            font-family: 'Cairo', sans-serif;
         }
 
         .initiative-icon {
-            width: 90px;
-            height: 90px;
+            width: 100px;
+            height: 100px;
             background: white;
-            border-radius: 40% 60% 40% 60%;
+            border-radius: 50% 40% 50% 40%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
-            color: #FF6B6B;
+            font-size: 2.8rem;
+            color: #b5947c;
             margin-bottom: 25px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .initiative-card:hover .initiative-icon {
+            transform: rotate(5deg) scale(1.05);
+            color: #8aa79b;
         }
 
         .initiative-card h3 {
@@ -361,21 +462,20 @@
 
         .initiative-desc {
             color: #5f6b7a;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             font-size: 1.1rem;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         .initiative-tag {
             display: inline-block;
-            background: rgba(78, 205, 196, 0.2);
-            color: #4ECDC4;
-            padding: 8px 20px;
-            border-radius: 40px;
+            background: rgba(155, 176, 165, 0.2);
+            color: #4d7a6e;
+            padding: 8px 25px;
+            border-radius: 50px;
             font-weight: 700;
         }
 
-        /* ===== نصائح وإرشادات ===== */
         .advice-section {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -384,15 +484,19 @@
         }
 
         .advice-card {
-            background: white;
-            border-radius: 60px;
-            padding: 35px;
-            border: 4px solid #FFE66D;
-            box-shadow: 0 15px 30px rgba(255, 230, 109, 0.2);
+            background: rgba(255, 250, 240, 0.8);
+            backdrop-filter: blur(5px);
+            border-radius: 80px;
+            padding: 40px;
+            border: 4px solid white;
+            box-shadow: 0 15px 35px rgba(160, 140, 120, 0.1);
         }
 
         .advice-card:first-child {
-            border-color: #4ECDC4;
+            border-color: #b8d0c0;
+        }
+        .advice-card:last-child {
+            border-color: #dcc8b5;
         }
 
         .advice-header {
@@ -403,19 +507,19 @@
         }
 
         .advice-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #FF6B6B, #FFB347);
-            border-radius: 30px;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #b8a89a, #9bb0a5);
+            border-radius: 40% 60% 40% 60%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: white;
         }
 
         .advice-card h3 {
-            font-size: 1.9rem;
+            font-size: 2rem;
             color: #2c3e50;
         }
 
@@ -427,20 +531,19 @@
             margin-bottom: 15px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             font-size: 1.1rem;
         }
 
         .advice-list li i {
-            color: #4ECDC4;
-            font-size: 1.2rem;
+            color: #9bb0a5;
+            font-size: 1.3rem;
         }
 
-        /* ===== المقياس النفسي ===== */
         .scale-box {
-            background: linear-gradient(145deg, #A8E6CF, #DCEDC2);
-            border-radius: 80px;
-            padding: 50px;
+            background: linear-gradient(145deg, #d4e0d9, #e2d9cd);
+            border-radius: 100px;
+            padding: 60px 50px;
             margin: 50px 0;
             border: 5px solid white;
         }
@@ -451,7 +554,7 @@
         }
 
         .scale-header h2 {
-            font-size: 2.8rem;
+            font-size: 3rem;
             color: #2c3e50;
             margin-bottom: 10px;
         }
@@ -459,46 +562,56 @@
         .scale-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
+            gap: 30px;
         }
 
         .scale-item {
             background: white;
-            border-radius: 50px;
-            padding: 25px;
+            border-radius: 70px;
+            padding: 30px 20px;
             text-align: center;
+            transition: 0.3s;
+            border: 3px solid transparent;
+        }
+        .scale-item:hover {
+            border-color: #b8d0c0;
+            transform: scale(1.02);
         }
 
         .scale-item h4 {
-            font-size: 1.5rem;
-            color: #FF6B6B;
+            font-size: 1.7rem;
+            color: #b5947c;
             margin-bottom: 15px;
         }
 
         .scale-emojis {
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin: 15px 0;
         }
 
         .btn-scale {
-            background: #4ECDC4;
+            background: #9bb0a5;
             color: white;
             border: none;
-            padding: 12px 25px;
-            border-radius: 40px;
-            font-weight: 600;
+            padding: 12px 30px;
+            border-radius: 60px;
+            font-weight: 700;
             cursor: pointer;
             transition: 0.3s;
+            font-size: 1.1rem;
+        }
+        .btn-scale:hover {
+            background: #7f9a8d;
+            transform: translateY(-3px);
         }
 
-        /* ===== نموذج حجز الاستشارة ===== */
         .booking-section {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border-radius: 100px;
-            padding: 50px;
+            background: rgba(255, 250, 240, 0.9);
+            backdrop-filter: blur(8px);
+            border-radius: 120px;
+            padding: 60px;
             margin: 60px 0;
-            border: 5px solid #FFB347;
+            border: 5px solid #d4c0b0;
         }
 
         .booking-form {
@@ -508,9 +621,11 @@
 
         .form-title {
             text-align: center;
-            font-size: 2.5rem;
-            color: #FF6B6B;
-            margin-bottom: 40px;
+            font-size: 2.8rem;
+            background: linear-gradient(135deg, #6b8f7a, #b5947c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 45px;
         }
 
         .form-group {
@@ -530,8 +645,8 @@
         .form-group textarea {
             width: 100%;
             padding: 18px 25px;
-            border: 3px solid #FFE66D;
-            border-radius: 60px;
+            border: 3px solid #e2d9cd;
+            border-radius: 70px;
             font-size: 1.1rem;
             font-family: inherit;
             background: white;
@@ -541,42 +656,43 @@
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
-            border-color: #4ECDC4;
+            border-color: #9bb0a5;
             outline: none;
-            box-shadow: 0 0 0 5px rgba(78, 205, 196, 0.2);
+            box-shadow: 0 0 0 5px rgba(155, 176, 165, 0.2);
         }
 
         .form-group textarea {
-            border-radius: 40px;
+            border-radius: 50px;
             resize: vertical;
         }
 
         .submit-btn {
-            background: linear-gradient(135deg, #FF6B6B, #FFB347);
+            background: linear-gradient(135deg, #9bb0a5, #b8a89a);
             color: white;
             border: none;
             padding: 20px 50px;
-            border-radius: 60px;
-            font-size: 1.5rem;
+            border-radius: 80px;
+            font-size: 1.6rem;
             font-weight: 700;
             cursor: pointer;
-            transition: 0.3s;
+            transition: all 0.3s;
             width: 100%;
-            box-shadow: 0 15px 30px rgba(255, 107, 107, 0.3);
+            box-shadow: 0 15px 35px rgba(155, 176, 165, 0.4);
+            border: 3px solid rgba(255,255,255,0.3);
         }
 
         .submit-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(255, 107, 107, 0.4);
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 20px 45px rgba(130, 150, 130, 0.5);
         }
 
-        /* ===== فوتر ===== */
         footer {
-            background: #2c3e50;
-            border-radius: 80px 80px 0 0;
-            padding: 50px 40px 20px;
+            background: #3e5d53;
+            border-radius: 100px 100px 0 0;
+            padding: 60px 40px 25px;
             margin-top: 70px;
-            color: white;
+            color: #f0ede5;
+            border-top: 8px solid #b8a89a;
         }
 
         .footer-content {
@@ -588,28 +704,31 @@
         }
 
         .footer-col h4 {
-            color: #FFE66D;
-            font-size: 1.5rem;
+            color: #f5e3ce;
+            font-size: 1.6rem;
             margin-bottom: 20px;
+            border-right: 5px solid #dbbf9e;
+            padding-right: 15px;
         }
 
         .footer-col p {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .footer-col i {
-            color: #4ECDC4;
+            color: #dbbf9e;
+            width: 25px;
         }
 
         .copyright {
             text-align: center;
-            padding-top: 30px;
-            margin-top: 30px;
+            padding-top: 35px;
+            margin-top: 35px;
             border-top: 2px solid #ffffff20;
-            color: #a0b8cc;
+            color: #cbd5d0;
         }
     </style>
 </head>
@@ -619,7 +738,7 @@
     </div>
 
     <div class="container">
-        <!-- ===== الهيدر الجديد ===== -->
+        <!-- ===== الهيدر ===== -->
         <header class="happy-header">
             <div class="platform-brand">
                 <div class="brand-icon">
@@ -635,7 +754,23 @@
             </div>
         </header>
 
-        <!-- ===== رابط قناة الواتساب ===== -->
+        <!-- ===== رابط قناة الواتساب (الترحيب أصبح فوقها) ===== -->
+
+        <!-- ===== الكلمة الترحيبية المطورة بشكل إبداعي (أصبحت فوق القناة) ===== -->
+        <div class="welcome-message">
+            <div class="welcome-title">مرحباً بكم في فضائي الإرشادي الرقمي</div>
+            <div class="specialist-quote">منصة اطمئن ✨</div>
+            <div class="welcome-text">
+                <p><i class="fas fa-quote-right"></i> يسعدني أن أرحب بكم في هذه المنصة التي ولدت من إيماني العميق بأن <strong>"بناء الطفل يبدأ بكلمة طيبة وبيئة آمنة"</strong>. بصفتي أخصائية نفسية لطلاب الحلقة الأولى، أؤمن أن دوري يتجاوز أسوار المكتب ليصل إلى كل زاوية في مدرستنا، وإلى كل بيت يطمح لرؤية طفله متزناً وسعيداً.</p>
+                <p>لقد خصصتُ هذا الموقع ليكون:</p>
+                <p>📚 <strong>سجلاً وثائقياً</strong> لمبادراتي وبرامجي التي أقدمها لأحبائي الصغار.<br>
+                🌸 <strong>نافذة توعوية</strong> تشارككم أفضل الممارسات التربوية والنفسية بأسلوب حديث ومبسط.<br>
+                🤝 <strong>جسراً للتواصل المهني</strong> الذي يعكس شغفي في تطوير شخصية الطالب ودعمه ليواجه تحديات نموه بكل ثقة.</p>
+                <p>شكراً لكونكم شركاء في هذه الرحلة، وأتمنى أن تجدوا في ثنايا هذه الصفحات ما يلهمكم ويخدم مسيرتنا التربوية المشتركة. 💖</p>
+            </div>
+        </div>
+
+        <!-- ===== قناة وعي رقمي آمن (الآن أسفل الترحيب) ===== -->
         <div class="whatsapp-channel">
             <div class="channel-info">
                 <div class="channel-icon">
@@ -651,20 +786,6 @@
             </a>
         </div>
 
-        <!-- ===== الكلمة الترحيبية المطورة ===== -->
-        <div class="welcome-message">
-            <div class="welcome-title">مرحباً بكم في فضائي الإرشادي الرقمي</div>
-            <div class="specialist-quote">منصة اطمئن ✨</div>
-            <div class="welcome-text">
-                <p><i class="fas fa-quote-right"></i> يسعدني أن أرحب بكم في هذه المنصة التي ولدت من إيماني العميق بأن <strong>"بناء الطفل يبدأ بكلمة طيبة وبيئة آمنة"</strong>. بصفتي أخصائية نفسية لطلاب الحلقة الأولى، أؤمن أن دوري يتجاوز أسوار المكتب ليصل إلى كل زاوية في مدرستنا، وإلى كل بيت يطمح لرؤية طفله متزناً وسعيداً.</p>
-                <p>لقد خصصتُ هذا الموقع ليكون:</p>
-                <p>📚 <strong>سجلاً وثائقياً</strong> لمبادراتي وبرامجي التي أقدمها لأحبائي الصغار.<br>
-                🌸 <strong>نافذة توعوية</strong> تشارككم أفضل الممارسات التربوية والنفسية بأسلوب حديث ومبسط.<br>
-                🤝 <strong>جسراً للتواصل المهني</strong> الذي يعكس شغفي في تطوير شخصية الطالب ودعمه ليواجه تحديات نموه بكل ثقة.</p>
-                <p>شكراً لكونكم شركاء في هذه الرحلة، وأتمنى أن تجدوا في ثنايا هذه الصفحات ما يلهمكم ويخدم مسيرتنا التربوية المشتركة. 💖</p>
-            </div>
-        </div>
-
         <!-- ===== قسم المبادرات المدرسية ===== -->
         <div class="initiatives-showcase">
             <div class="section-badge">
@@ -672,7 +793,7 @@
             </div>
             <div class="initiatives-grid">
                 <!-- المبادرة 1 -->
-                <div class="initiative-card">
+                <div class="initiative-card" onclick="alert('مبادرة وعي رقمي آمن: نهدف لحماية أطفالنا من مخاطر الإنترنت')">
                     <div class="initiative-number">١</div>
                     <div class="initiative-icon"><i class="fas fa-shield-halved"></i></div>
                     <h3>قناه وعي رقمي آمن</h3>
@@ -682,7 +803,7 @@
                     <span class="initiative-tag"><i class="fab fa-whatsapp"></i> قناة متخصصة</span>
                 </div>
                 <!-- المبادرة 2 -->
-                <div class="initiative-card">
+                <div class="initiative-card" onclick="alert('مشروع التنمر: معاً لبيئة مدرسية خالية من التنمر')">
                     <div class="initiative-number">٢</div>
                     <div class="initiative-icon"><i class="fas fa-hand"></i></div>
                     <h3>التنمر وتأثيره النفسي على الطلبة</h3>
@@ -692,7 +813,7 @@
                     <span class="initiative-tag"><i class="fas fa-heart"></i> دعم نفسي</span>
                 </div>
                 <!-- المبادرة 3 -->
-                <div class="initiative-card">
+                <div class="initiative-card" onclick="alert('برنامج المذيع الصغير: نعد جيلاً واثقاً من نفسه')">
                     <div class="initiative-number">٣</div>
                     <div class="initiative-icon"><i class="fas fa-microphone"></i></div>
                     <h3>برنامج المذيع الصغير(صدى القلعة)</h3>
@@ -706,7 +827,6 @@
 
         <!-- ===== نصائح وإرشادات ===== -->
         <div class="advice-section">
-            <!-- نصائح للطفل المطمئن -->
             <div class="advice-card">
                 <div class="advice-header">
                     <div class="advice-icon"><i class="fas fa-child"></i></div>
@@ -720,7 +840,6 @@
                     <li><i class="fas fa-heart"></i> شاركه القراءة واللعب الهادئ</li>
                 </ul>
             </div>
-            <!-- إرشادات لولي الأمر -->
             <div class="advice-card">
                 <div class="advice-header">
                     <div class="advice-icon"><i class="fas fa-family"></i></div>
@@ -736,7 +855,7 @@
             </div>
         </div>
 
-        <!-- ===== المقياس النفسي للحلقة الأولى ===== -->
+        <!-- ===== المقياس النفسي ===== -->
         <div class="scale-box">
             <div class="scale-header">
                 <h2><i class="fas fa-clipboard-list"></i> مقياس المشاعر للصغار</h2>
@@ -827,23 +946,19 @@
     </div>
 
     <script>
-        // التمرير للأعلى
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // نموذج الحجز عبر الواتساب
         function bookConsultation(event) {
             event.preventDefault();
             
-            // جمع بيانات النموذج
             const parentName = document.getElementById('parentName').value;
             const phone = document.getElementById('phone').value;
             const studentInfo = document.getElementById('studentInfo').value;
             const consultType = document.getElementById('consultType').value;
             const description = document.getElementById('description').value;
 
-            // تكوين رسالة الواتساب
             const message = `مرحباً أ. سامية،
 أود حجز استشارة نفسية:
 👤 ولي الأمر: ${parentName}
@@ -854,28 +969,14 @@
 
 شكراً لكم.`;
 
-            // رقم الواتساب الخاص بالأخصائية (يُرجى تغييره)
-            const specialistNumber = "96893581980"; // ضع رقم الواتساب هنا
-            
-            // فتح الواتساب
+            const specialistNumber = "96893581980"; 
             window.open(`https://wa.me/${specialistNumber}?text=${encodeURIComponent(message)}`, '_blank');
             
-            // رسالة تأكيد
             alert('تم تجهيز الطلب، سيتم تحويلك إلى واتساب للتواصل المباشر مع الأخصائية');
             return false;
         }
 
-        // رسائل تفاعلية للمبادرات
-        document.querySelectorAll('.initiative-card').forEach((card, index) => {
-            card.addEventListener('click', () => {
-                const initiatives = [
-                    'مبادرة وعي رقمي آمن: نهدف لحماية أطفالنا من مخاطر الإنترنت',
-                    'مشروع التنمر: معاً لبيئة مدرسية خالية من التنمر',
-                    'برنامج المذيع الصغير: نعد جيلاً واثقاً من نفسه'
-                ];
-                alert(initiatives[index]);
-            });
-        });
+        // رسائل تفاعلية للمبادرات مدمجة في onclick مباشرة
     </script>
 </body>
 </html>
